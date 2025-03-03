@@ -4,12 +4,36 @@
     <title>TodoApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
   </head>
 
   <body>
+
+    <header class="header">
+      <div class="header_title">
+        <a href="#">Boards</a>
+      </div>
+
+      <div class="header_dropDown">
+        <%= image_tag 'default-avatar.png', class: 'header_avatar dropbtn' %>
+        <ul class="header_dropDown_content">
+          <li class="header_dropDown_item"><a href="#">Profile</a></li>
+          <li class="header_dropDown_item"><a href="#">Logout</a></li>
+        </ul>
+      </div>
+
+    </header>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
+
+
   </body>
 </html>
