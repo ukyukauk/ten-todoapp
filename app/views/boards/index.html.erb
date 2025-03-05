@@ -2,21 +2,27 @@
 
   <h2 class="page-title">All Boards</h2>
 
-  <div class="board">
-    <div class="board_content">
-      <div class="board_text">
-        <div class="board_name">Brackets</div>
-        <div class="board_description">Saving money – is something we would all like.</div>
+  <% @boards.each do |board| %>
+    <div class="board">
+      <div class="board_content">
+        <div class="board_text">
+          <div class="board_name">
+            <%= board.name %>
+          </div>
+          <div class="board_description">
+            <%= board.description %>
+          </div>
+        </div>
+        <div class="board_button">
+          <%= image_tag 'combined-shape', class: "board_edit-board_button" %>
+        </div>
       </div>
-      <div class="board_button">
-        <%= image_tag 'combined-shape', class: "board_edit-board_button" %>
-      </div>
-    </div>
 
-    <div class="board_editor">
-      <%= image_tag 'oval-man.png', class: "board_editor-icon" %>
+      <div class="board_editor">
+        <%= image_tag 'oval-man.png', class: "board_editor-icon" %>
+      </div>
     </div>
-  </div>
+  <% end %>
 
   <div class="add-new-board">
     <p class="add-new-board_text">+ Add new board</p>
