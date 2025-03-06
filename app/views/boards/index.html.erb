@@ -3,25 +3,27 @@
   <h2 class="page-title">All Boards</h2>
 
   <% @boards.each do |board| %>
-    <div class="board">
-      <div class="board_content">
-        <div class="board_text">
-          <div class="board_name">
-            <%= board.name %>
+    <%= link_to board_path(board) do %>
+      <div class="board">
+        <div class="board_content">
+          <div class="board_text">
+            <div class="board_name">
+              <%= board.name %>
+            </div>
+            <div class="board_description">
+              <%= board.description %>
+            </div>
           </div>
-          <div class="board_description">
-            <%= board.description %>
+          <div class="board_button">
+            <%= image_tag 'combined-shape', class: "board_edit-board_button" %>
           </div>
         </div>
-        <div class="board_button">
-          <%= image_tag 'combined-shape', class: "board_edit-board_button" %>
-        </div>
-      </div>
 
-      <div class="board_editor">
-        <%= image_tag 'oval-man.png', class: "board_editor-icon" %>
+        <div class="board_editor">
+          <%= image_tag 'oval-man.png', class: "board_editor-icon" %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 
   <div class="add-new-board">
