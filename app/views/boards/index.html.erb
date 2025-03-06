@@ -26,7 +26,9 @@
     <% end %>
   <% end %>
 
-  <div class="add-new-board">
-    <p class="add-new-board_text">+ Add new board</p>
-  </div>
+  <%= link_to new_board_path do %>
+    <div class="add-new-board">
+      <p class="add-new-board_text">+ Add new board</p>
+    </div>
+  <% end %>
 </div>
