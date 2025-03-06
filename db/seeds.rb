@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+10.times do  # 10回繰り返す
+  Board.create(
+    user_id: 1,
+    name: Faker::Lorem.sentence(word_count: 5),  # ランダムな5単語
+    description: Faker::Lorem.sentence(word_count: 100)  # ランダムな100単語
+  )
+end
