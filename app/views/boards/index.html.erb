@@ -14,9 +14,20 @@
               <%= board.description %>
             </div>
           </div>
-          <div class="board_button">
-            <%= image_tag 'combined-shape', class: "board_edit-board_button" %>
+
+          <div class="board_detail_actions">
+            <div class="dropdown">
+              <%= image_tag 'combined-shape', class: "board_action-button" %>
+              <div class="dropdown-content">
+                <%= image_tag 'card1.png', class: "dropdown-content-bg" %>
+                <div class="dropdown-content-link-menu">
+                  <%= link_to 'Edit', edit_board_path(board), class: "dropdown-content-link" %>
+                  <a href="" class="dropdown-content-link">Delete</a>
+                </div>
+              </div>
+            </div>
           </div>
+
         </div>
 
         <div class="board_editor">
