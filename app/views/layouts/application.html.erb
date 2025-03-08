@@ -9,6 +9,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +22,11 @@
 
     <header class="header">
       <div class="header_title">
+        <% if !current_page?(root_path) %>
+          <%= link_to :back do %>
+            <i class="fa-solid fa-chevron-left header_back"></i>
+          <% end %>
+        <% end %>
         <%= link_to 'Boards', root_path %>
       </div>
 
