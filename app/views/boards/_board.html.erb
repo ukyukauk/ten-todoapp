@@ -1,0 +1,27 @@
+<div class="board">
+  <div class="board_content">
+    <div class="board_text">
+      <div class="board_name">
+        <%= board.name %>
+      </div>
+      <div class="board_description">
+        <%= board.description %>
+      </div>
+    </div>
+    <div class="board_detail_actions">
+      <div class="dropdown">
+        <%= image_tag 'combined-shape', class: "board_action-button" %>
+        <div class="dropdown-content">
+          <%= image_tag 'card1.png', class: "dropdown-content-bg" %>
+          <div class="dropdown-content-link-menu">
+            <%= link_to 'Edit', edit_board_path(board), class: "dropdown-content-link" %>
+            <%= link_to 'Delete', board_path(board), data: {method: 'delete', confirm: '削除してもよろしいですか？'}, class: "dropdown-content-link" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="board_editor">
+    <%= image_tag 'oval-man.png', class: "board_editor-icon" %>
+  </div>
+</div>

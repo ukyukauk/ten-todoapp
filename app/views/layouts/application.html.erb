@@ -19,7 +19,6 @@
   </head>
 
   <body>
-
     <header class="header">
       <div class="header_title">
         <% if !current_page?(root_path) %>
@@ -29,7 +28,6 @@
         <% end %>
         <%= link_to 'Boards', root_path %>
       </div>
-
       <div class="header_actions">
         <div class="dropdown">
           <%= image_tag 'oval-woman.png', class: "header_avatar" %>
@@ -46,10 +44,7 @@
           </div>
         </div>
       </div>
-
-
     </header>
-
     <% if flash.present? %>
       <div class="flash">
         <% flash.each do |key, value| %>
@@ -57,9 +52,6 @@
         <% end %>
       </div>
     <% end %>
-
     <%= yield %>
-
-
   </body>
 </html>
