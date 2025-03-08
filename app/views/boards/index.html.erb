@@ -21,7 +21,7 @@
               <div class="dropdown-content">
                 <%= image_tag 'card1.png', class: "dropdown-content-bg" %>
                 <div class="dropdown-content-link-menu">
-                  <a href="" class="dropdown-content-link">Edit</a>
+                  <%= link_to 'Edit', edit_board_path(board), class: "dropdown-content-link" %>
                   <a href="" class="dropdown-content-link">Delete</a>
                 </div>
               </div>
