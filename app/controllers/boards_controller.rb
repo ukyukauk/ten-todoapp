@@ -1,8 +1,11 @@
 class BoardsController < ApplicationController
-  before_action :set_board, only: [:edit, :update]
+  before_action :set_board, only: [:show, :edit, :update]
 
   def index
     @boards = Board.all
+  end
+
+  def show
   end
 
   def new
@@ -20,6 +23,7 @@ class BoardsController < ApplicationController
   end
 
   def edit
+    binding.pry
   end
 
   def update

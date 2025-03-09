@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title TodoApp
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    / Font Awesome
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css", :rel => "stylesheet"}/
+    / Google Fonts
+    %link{:href => "https://fonts.googleapis.com", :rel => "preconnect"}/
+    %link{:crossorigin => "", :href => "https://fonts.gstatic.com", :rel => "preconnect"}/
+    %link{:href => "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap", :rel => "stylesheet"}/
+  %body
+    %header.header
+      .header_title
+        - if !current_page?(root_path)
+          = link_to :back do
+            %i.fa-solid.fa-chevron-left.header_back
+        = link_to 'Boards', root_path
+      .header_actions
+        .dropdown
+          = image_tag 'oval-woman.png', class: "header_avatar"
+          .dropdown-content
+            = image_tag 'card1.png', class: "dropdown-content-bg"
+            .dropdown-content-link-menu
+              .dropdown-content-link
+                %a{:href => "#"} Profile
+              .dropdown-content-link
+                %a{:href => "#"} Logout
+    - if flash.present?
+      .flash
+        - flash.each do |key, value|
+          %div{:class => key}= value
+    = yield
