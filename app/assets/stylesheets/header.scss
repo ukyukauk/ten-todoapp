@@ -37,3 +37,13 @@
   width: 40px;
   height: 40px;
 }
+
+.header_loginBtn {
+  background-color: $btn-color;
+  color: #fff;
+  border: none;
+  text-align: center;
+  padding: 8px;
+  border-radius: 4px;
+  font-family: $font-family;
+}
