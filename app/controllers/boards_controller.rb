@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_action :set_board, only: [:show, :edit, :update]
+  before_action :set_board, only: [:show]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -24,9 +24,11 @@ class BoardsController < ApplicationController
   end
 
   def edit
+    @board = current_user.boards.find(params[:id])
   end
 
   def update
+    @board = current_user.boards.find(params[:id])
     if @board.update(board_params)
       redirect_to root_path, notice: '更新しました'
     else
@@ -36,7 +38,7 @@ class BoardsController < ApplicationController
   end
 
   def destroy
-    board = Board.find(params[:id])
+    board = current_user.boards.find(params[:id])
     board.destroy!
     redirect_to root_path, notice: '削除しました'
   end
