@@ -1,3 +1,14 @@
-<%= @board.name %>
-<br>
-<%= @board.description %>
+<div class="container">
+  <h2 class="page-title"><%= @board.name %></h2>
+  <div class="tasks">
+    <% @tasks.each do |task| %>
+      <%= render 'task', task: task %>
+    <% end %>
+    <%= link_to new_board_task_path(@board) do %>
+      <div class="add-new-task">
+        <p class="add-new-task_text">+ Add new card</p>
+      </div>
+    <% end %>
+
+  </div>
+</div>

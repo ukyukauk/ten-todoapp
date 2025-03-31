@@ -1,0 +1,15 @@
+<div class="task">
+  <div class="task_content">
+    <%= link_to board_path(task) do %>
+      <div class="task_name">
+        <%= task.name %>
+      </div>
+      <div class="task_description">
+        <%= task.description %>
+      </div>
+      <div class="task_editor">
+        <%= image_tag 'oval-man.png', class: "task_editor-icon" %>
+      </div>
+    <% end %>
+  </div>
+</div>
