@@ -1,1 +1,11 @@
-board_task_path
+<div class="container">
+  <h2 class="page-title"><%= @task.name %></h2>
+  <% if @task.eyecatch.attached? %>
+    <div class="task_image">
+      <%= image_tag @task.eyecatch %>
+    </div>
+  <% end %>
+  <div class="task_description">
+    <%= @task.description %>
+  </div>
+</div>
