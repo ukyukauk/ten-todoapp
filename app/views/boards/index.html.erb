@@ -1,12 +1,12 @@
 <div class="container">
   <h2 class="page-title">All Boards</h2>
-  <div class="cards">
+  <div class="boards">
     <% @boards.each do |board| %>
       <%= render 'board', board: board %>
     <% end %>
     <%= link_to new_board_path do %>
-      <div class="add-new-card">
-        <p class="add-new-card_text">+ Add new board</p>
+      <div class="add-new-board">
+        <p class="add-new-board_text">+ Add new board</p>
       </div>
     <% end %>
   </div>
