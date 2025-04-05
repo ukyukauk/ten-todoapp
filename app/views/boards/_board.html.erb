@@ -14,9 +14,9 @@
       <% end %>
     </div>
     <% if user_signed_in? && current_user.has_written?(board) %>
-      <div class="board_detail_actions">
+      <div class="detail_actions">
         <div class="dropdown">
-          <%= image_tag 'combined-shape', class: "board_action-button" %>
+          <%= image_tag 'combined-shape', class: "dropdown-button" %>
           <div class="dropdown-content">
             <%= image_tag 'card1.png', class: "dropdown-content-bg" %>
             <div class="dropdown-content-link-menu">
