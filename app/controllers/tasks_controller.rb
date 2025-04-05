@@ -2,8 +2,21 @@ class TasksController < ApplicationController
   # before_action :set_board, only: [:show]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
-  # def show
-  # end
+  def show
+    @board = Board.find(params[:board_id])
+    @task = @board.tasks.find(params[:id])
+    # @board = Board.find_by(id: params[:board_id])
+    # if @board.nil?
+    #   redirect_to boards_path, alert: "Boardが見つかりませんでした"
+    #   return
+    # end
+
+    # @task = @board.tasks.find_by(id: params[:id])
+    # if @task.nil?
+    #   redirect_to board_path(@board), alert: "Taskが見つかりませんでした"
+    #   return
+    # end
+  end
 
   def new
     @board = Board.find(params[:board_id])
@@ -45,7 +58,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:name, :description, :deadline)
+    params.require(:task).permit(:name, :description, :deadline, :eyecatch)
   end
 
   # def set_board

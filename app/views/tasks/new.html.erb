@@ -11,6 +11,18 @@
 
   <%= form_with(model: @task, url: board_tasks_path(@board), local: true) do |f| %>
     <div class="field">
+      <%= f.label :deadline %>
+    </div>
+    <div>
+      <%= f.date_field :deadline, class: 'deadline' %>
+    </div>
+    <div class="field">
+      <%= f.label :eyecatch %>
+    </div>
+    <div>
+      <%= f.file_field :eyecatch, class: 'eyecatch' %>
+    </div>
+    <div class="field">
       <%= f.label :name %>
     </div>
     <div>
