@@ -1,13 +1,11 @@
 <div class="container">
-  <h2 class="page-title">
-    New Card
-  </h2>
+  <h2 class="page-title">Edit Task</h2>
   <ul class="errorMessages">
     <% @task.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>
-  <%= form_with(model: @task, url: board_tasks_path(@board), local: true) do |f| %>
+  <%= form_with(model: @task, url: board_task_path(@task.board, @task), local: true) do |f| %>
     <div class="field">
       <%= f.label :deadline %>
     </div>
@@ -20,6 +18,11 @@
     <div>
       <%= f.file_field :eyecatch, class: 'eyecatch' %>
     </div>
+    <% if @task.eyecatch.attached? %>
+      <div class="eyecatch_message">
+        現在のアイキャッチ画像は変更されません。<br>変更する場合は新しいファイルを選択してください。
+      </div>
+    <% end %>
     <div class="field">
       <%= f.label :name %>
     </div>

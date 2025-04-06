@@ -5,17 +5,6 @@ class TasksController < ApplicationController
   def show
     @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
-    # @board = Board.find_by(id: params[:board_id])
-    # if @board.nil?
-    #   redirect_to boards_path, alert: "Boardが見つかりませんでした"
-    #   return
-    # end
-
-    # @task = @board.tasks.find_by(id: params[:id])
-    # if @task.nil?
-    #   redirect_to board_path(@board), alert: "Taskが見つかりませんでした"
-    #   return
-    # end
   end
 
   def new
@@ -36,25 +25,25 @@ class TasksController < ApplicationController
     end
   end
 
-  # def edit
-  #   @board = current_user.boards.find(params[:id])
-  # end
+  def edit
+    @task = current_user.tasks.find(params[:id])
+  end
 
-  # def update
-  #   @board = current_user.boards.find(params[:id])
-  #   if @board.update(board_params)
-  #     redirect_to root_path, notice: '更新しました'
-  #   else
-  #     flash.now[:error] = '更新に失敗しました'
-  #     render :edit
-  #   end
-  # end
+  def update
+    @task = current_user.tasks.find(params[:id])
+    if @task.update(task_params)
+      redirect_to board_task_path(@task.board, @task), notice: '更新しました'
+    else
+      flash.now[:error] = '更新に失敗しました'
+      render :edit
+    end
+  end
 
-  # def destroy
-  #   board = current_user.boards.find(params[:id])
-  #   board.destroy!
-  #   redirect_to root_path, notice: '削除しました'
-  # end
+  def destroy
+    task = current_user.tasks.find(params[:id])
+    task.destroy!
+    redirect_to board_path(task.board), notice: '削除しました'
+  end
 
   private
   def task_params
