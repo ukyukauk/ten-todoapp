@@ -1,22 +1,25 @@
 # == Schema Information
 #
-# Table name: boards
+# Table name: tasks
 #
 #  id          :bigint           not null, primary key
+#  deadline    :datetime
 #  description :text             not null
 #  name        :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  board_id    :bigint           not null
 #  user_id     :bigint           not null
 #
 # Indexes
 #
-#  index_boards_on_user_id  (user_id)
+#  index_tasks_on_board_id  (board_id)
+#  index_tasks_on_user_id   (user_id)
 #
-class Board < ApplicationRecord
-  validates :name, presence: true
-  validates :description, presence: true
+require 'test_helper'
 
-  belongs_to :user
-  has_many :tasks, dependent: :destroy
+class TaskTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end

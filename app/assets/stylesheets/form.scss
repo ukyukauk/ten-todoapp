@@ -17,6 +17,22 @@ select {
   margin-top: 33px;
 }
 
+.eyecatch {
+  width: 100%;
+  margin-top: 8px;
+  font-family: $font-family;
+}
+
+.eyecatch_message {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.deadline {
+  margin-top: 8px;
+  font-family: $font-family;
+}
+
 label {
   font-size: 18px;
   font-weight: 400;

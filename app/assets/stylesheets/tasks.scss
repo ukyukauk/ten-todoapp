@@ -5,40 +5,43 @@
   font-weight: 800;
 }
 
-.boards {
+.tasks {
   margin-top: 9px;
 }
 
-.board {
+.task {
   margin-top: 26px;
   background-color: $contents-bg-color;
   border-radius: 10px;
-  padding: 32px 17px 20px 16px;
+  padding: 20px;
   max-width: 100%;
 }
 
-.board_flex-items {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
+.task_image {
+  margin-bottom: 27px;
+
+
+  img {
+    width: 100%;
+  }
 }
 
-.board_content {
+.task_content {
   flex: 1;
   min-width: 0;
   cursor: pointer;
 }
 
-.board_name {
+.task_name {
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 800;
   max-width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.board_description {
+.task_description {
   margin-top: 6px;
   font-size: 14px;
   font-weight: 400;
@@ -49,24 +52,53 @@
   text-overflow: ellipsis;
 }
 
-.board_editor {
-  margin-top: 29px;
+.task_bottom {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.board_editor-icon {
+.task_editor {
+
+}
+
+.task_editor-icon {
   width: 30px;
 }
 
-.add-new-board {
+.task_comment {
+  display: flex;
+  align-items: center;
+}
+
+.task_comment-count {
+  opacity: 0.2;
+}
+
+.task_comment-icon {
+
+}
+
+.task_comment-icon-img {
+  width: 20px;
+}
+
+.task_deadline {
+  margin-top: 4px;
+  text-align: right;
+  font-size: 14px;
+  opacity: 0.4;
+}
+
+.add-new-task {
   margin-top: 26px;;
   width: 100%;
   padding: 68px;
-  // height: 160px;
   border-radius: 10px;
   border: 1px dashed rgba(0, 0, 0, 0.20);
 }
 
-.add-new-board_text {
+.add-new-task_text {
   font-size: 18px;
   text-align: center;
 }

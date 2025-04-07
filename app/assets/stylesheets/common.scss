@@ -1,11 +1,19 @@
 @import "./variables";
 
+.detail_actions {
+  width: 24px;
+}
+
 .dropdown {
   padding-bottom: 8px;
 
   img {
     cursor: pointer;
   }
+}
+
+.dropdown-button {
+  width: 100%;
 }
 
 .dropdown-content {
