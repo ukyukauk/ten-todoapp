@@ -39,15 +39,9 @@
     </div>
   </div>
 
-    <div class="add-new-comment">
-      <p class="add-new-comment_text">+ Add new comment</p>
-    </div>
-
-<!--
-  <%= link_to new_board_task_path(@board) do %>
+  <%= link_to new_board_task_comment_path(@task.board, @task) do %>
     <div class="add-new-comment">
       <p class="add-new-comment_text">+ Add new comment</p>
     </div>
   <% end %>
-  -->
 </div>
