@@ -15,7 +15,7 @@
 #  index_comments_on_user_id  (user_id)
 #
 class Comment < ApplicationRecord
-  validates :comment, presence: true
+  validates :content, presence: true
 
   belongs_to :task
   belongs_to :user

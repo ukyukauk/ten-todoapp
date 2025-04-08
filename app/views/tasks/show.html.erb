@@ -1,4 +1,5 @@
 <div class="container">
+  <!-- タスク詳細 -->
   <div class="task-details">
     <div class="page-header">
       <h2 class="page-title"><%= @task.name %></h2>
@@ -27,18 +28,24 @@
     </div>
   </div>
 
+  <!-- コメント一覧 -->
   <div class="comment_container">
     <h3 class="comment_header">Comment</h3>
     <div class="comments">
-      <div class="comment_icon">
-        <%= image_tag 'oval-man.png', class: "comment_icon-image" %>
-      </div>
-      <div class="comment_content">
-        Successful businesses know the importance of building and maintaining good working. Successful businesses know the importanc
-      </div>
+      <% @comments.each do |comment| %>
+        <div class="comment">
+          <div class="comment_icon">
+            <%= image_tag 'oval-man.png', class: "comment_icon-image" %>
+          </div>
+          <div class="comment_content">
+            <%= comment.content %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 
+  <!-- コメント追加ボタン -->
   <%= link_to new_board_task_comment_path(@task.board, @task) do %>
     <div class="add-new-comment">
       <p class="add-new-comment_text">+ Add new comment</p>

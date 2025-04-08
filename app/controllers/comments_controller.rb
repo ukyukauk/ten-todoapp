@@ -1,15 +1,17 @@
 class CommentsController < ApplicationController
 
   def new
-    @board = Board.find(params[:board_id])
-    @task = @board.tasks.find(params[:task_id])
+    board = Board.find(params[:board_id])
+    @task = board.tasks.find(params[:task_id])
     @comment = @task.comments.build
+    @comment.user = current_user
   end
 
   def create
-    @board = Board.find(params[:board_id])
-    @task = @board.tasks.find(params[:task_id])
+    board = Board.find(params[:board_id])
+    @task = board.tasks.find(params[:task_id])
     @comment = @task.comments.build(comment_params)
+    @comment.user = current_user
     if @comment.save
       redirect_to board_task_path(@task.board, @task), notice: 'コメントを保存しました'
     else
