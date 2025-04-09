@@ -13,7 +13,7 @@
         </div>
       <% end %>
     </div>
-    <% if user_signed_in? && current_user.has_written?(board) %>
+    <% if user_signed_in? && current_user.has_written_board?(board) %>
       <div class="detail_actions">
         <div class="dropdown">
           <%= image_tag 'combined-shape', class: "dropdown-button" %>
