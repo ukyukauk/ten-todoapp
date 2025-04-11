@@ -6,21 +6,78 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-john = User.create!(email: 'john@example.com', password: 'password')
-emily = User.create!(email: 'emily@example.com', password: 'password')
+yuka = User.create!(email: 'yuka@sample.com', password: '111111')
+john = User.create!(email: 'john@sample.com', password: 'password')
+emily = User.create!(email: 'emily@sample.com', password: 'password')
 
-2.times do  # 10回繰り返す
-  john.boards.create(
-    user_id: 1,
-    name: Faker::Lorem.sentence(word_count: 5),  # ランダムな5単語
-    description: Faker::Lorem.sentence(word_count: 100)  # ランダムな100単語
+# boards
+2.times do
+  yuka.boards.create!(
+    name: Faker::Lorem.sentence(word_count: 5),
+    description: Faker::Lorem.sentence(word_count: 10)
   )
 end
 
-2.times do  # 10回繰り返す
-  emily.boards.create(
-    user_id: 1,
-    name: Faker::Lorem.sentence(word_count: 5),  # ランダムな5単語
-    description: Faker::Lorem.sentence(word_count: 100)  # ランダムな100単語
+2.times do
+  john.boards.create!(
+    name: Faker::Lorem.sentence(word_count: 5),
+    description: Faker::Lorem.sentence(word_count: 10)
+  )
+end
+
+2.times do
+  emily.boards.create!(
+    name: Faker::Lorem.sentence(word_count: 5),
+    description: Faker::Lorem.sentence(word_count: 10)
+  )
+end
+
+# tasks
+10.times do
+  yuka.tasks.create!(
+    board: Board.all.sample,
+    name: Faker::Lorem.sentence(word_count: 5),
+    description: Faker::Lorem.sentence(word_count: 10),
+    deadline: Time.zone.local(2025, 5, 1, 15, 30)
+  )
+end
+
+10.times do
+  john.tasks.create!(
+    board: Board.all.sample,
+    name: Faker::Lorem.sentence(word_count: 5),
+    description: Faker::Lorem.sentence(word_count: 10),
+    deadline: Time.zone.local(2025, 6, 1, 15, 30)
+  )
+end
+
+10.times do
+  emily.tasks.create!(
+    board: Board.all.sample,
+    name: Faker::Lorem.sentence(word_count: 5),
+    description: Faker::Lorem.sentence(word_count: 10),
+    deadline: Time.zone.local(2025, 7, 1, 15, 30)
+  )
+end
+
+# comments
+20.times do
+  yuka.comments.create!(
+    task: Task.all.sample,
+    content: Faker::Lorem.sentence(word_count: 10)
+  )
+end
+
+20.times do
+  john.comments.create!(
+    task: Task.all.sample,
+    content: Faker::Lorem.sentence(word_count: 20)
+  )
+end
+
+20.times do
+  emily.comments.create!(
+    task: Task.all.sample,
+    content: Faker::Lorem.sentence(word_count: 30)
   )
 end
