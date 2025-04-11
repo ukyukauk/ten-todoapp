@@ -11,33 +11,27 @@ john = User.create!(email: 'john@sample.com', password: 'password')
 emily = User.create!(email: 'emily@sample.com', password: 'password')
 
 # boards
-2.times do
-  yuka.boards.create!(
-    name: Faker::Lorem.sentence(word_count: 5),
-    description: Faker::Lorem.sentence(word_count: 10)
-  )
-end
+yuka.boards.create!(
+  name: Faker::Lorem.sentence(word_count: 5),
+  description: Faker::Lorem.sentence(word_count: 10)
+)
 
-2.times do
-  john.boards.create!(
-    name: Faker::Lorem.sentence(word_count: 5),
-    description: Faker::Lorem.sentence(word_count: 10)
-  )
-end
+john.boards.create!(
+  name: Faker::Lorem.sentence(word_count: 5),
+  description: Faker::Lorem.sentence(word_count: 10)
+)
 
-2.times do
-  emily.boards.create!(
-    name: Faker::Lorem.sentence(word_count: 5),
-    description: Faker::Lorem.sentence(word_count: 10)
-  )
-end
+emily.boards.create!(
+  name: Faker::Lorem.sentence(word_count: 5),
+  description: Faker::Lorem.sentence(word_count: 10)
+)
 
 # tasks
 10.times do
   yuka.tasks.create!(
     board: Board.all.sample,
     name: Faker::Lorem.sentence(word_count: 5),
-    description: Faker::Lorem.sentence(word_count: 10),
+    description: Faker::Lorem.sentence(word_count: 100),
     deadline: Time.zone.local(2025, 5, 1, 15, 30)
   )
 end
@@ -46,7 +40,7 @@ end
   john.tasks.create!(
     board: Board.all.sample,
     name: Faker::Lorem.sentence(word_count: 5),
-    description: Faker::Lorem.sentence(word_count: 10),
+    description: Faker::Lorem.sentence(word_count: 100),
     deadline: Time.zone.local(2025, 6, 1, 15, 30)
   )
 end
@@ -55,7 +49,7 @@ end
   emily.tasks.create!(
     board: Board.all.sample,
     name: Faker::Lorem.sentence(word_count: 5),
-    description: Faker::Lorem.sentence(word_count: 10),
+    description: Faker::Lorem.sentence(word_count: 100),
     deadline: Time.zone.local(2025, 7, 1, 15, 30)
   )
 end
@@ -64,20 +58,20 @@ end
 20.times do
   yuka.comments.create!(
     task: Task.all.sample,
-    content: Faker::Lorem.sentence(word_count: 10)
+    content: Faker::Lorem.sentence(word_count: 50)
   )
 end
 
 20.times do
   john.comments.create!(
     task: Task.all.sample,
-    content: Faker::Lorem.sentence(word_count: 20)
+    content: Faker::Lorem.sentence(word_count: 50)
   )
 end
 
 20.times do
   emily.comments.create!(
     task: Task.all.sample,
-    content: Faker::Lorem.sentence(word_count: 30)
+    content: Faker::Lorem.sentence(word_count: 50)
   )
 end
