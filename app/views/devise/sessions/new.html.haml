@@ -3,11 +3,11 @@
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
       = f.label :email, "Email"
-      %br/
+    %div
       = f.email_field :email, autofocus: true, autocomplete: "email", class: "text"
     .field
       = f.label :password, "Password", class: "text"
-      %br/
+    %div
       = f.password_field :password, autocomplete: "current-password", class: "text"
     .actions
       = f.submit "Submit", class: "btn-primary"
