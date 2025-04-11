@@ -1,0 +1,42 @@
+<div class="container">
+  <h2 class="page-title">
+    <%= pageTitle %>
+  </h2>
+  <ul class="errorMessages">
+    <% task.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <%= form_with(model: task, url: url, local: true) do |f| %>
+    <div class="field">
+      <%= f.label :deadline %>
+    </div>
+    <div>
+      <%= f.date_field :deadline, class: 'deadline' %>
+    </div>
+    <div class="field">
+      <%= f.label :eyecatch %>
+    </div>
+    <div>
+      <%= f.file_field :eyecatch, class: 'eyecatch' %>
+    </div>
+    <% if task.eyecatch.attached? %>
+      <div class="eyecatch_message">
+        現在のアイキャッチ画像は変更されません。<br>変更する場合は新しいファイルを選択してください。
+      </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :name %>
+    </div>
+    <div>
+      <%= f.text_field :name, class: 'text' %>
+    </div>
+    <div class="field">
+      <%= f.label :description %>
+    </div>
+    <div>
+      <%= f.text_area :description %>
+    </div>
+    <%= f.submit 'Submit', class: 'btn-primary' %>
+  <% end %>
+</div>
