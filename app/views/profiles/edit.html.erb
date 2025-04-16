@@ -1,0 +1,47 @@
+<div class="container">
+  <h2 class="page-title">
+    Edit Profile
+  </h2>
+  <ul class="errorMessages">
+    <% @profile.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <%= form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f| %>
+    <div class="field">
+      <%= f.label :avatar %>
+    </div>
+    <div>
+      <%= f.file_field :avatar, class: 'file' %>
+    </div>
+    <div class="field">
+      <%= f.label :nickname %>
+    </div>
+    <div>
+      <%= f.text_field :nickname, class: 'text' %>
+    </div>
+    <div class="field">
+      <%= f.label :introduction %>
+    </div>
+    <div>
+      <%= f.text_area :introduction %>
+    </div>
+    <div class="field">
+      <%= f.label :gender %>
+    </div>
+    <div>
+      <%= f.select :gender, Profile.genders.map{ |k, v| [ I18n.t("enum.genders.#{k}"), k ] }, {}, {class: 'text'} %>
+    </div>
+    <div class="field">
+      <%= f.label :birthday %>
+    </div>
+    <div>
+      <%= f.date_field :birthday, class: 'text' %>
+    </div>
+    <div class="check">
+      <%= f.check_box :subscribed %>
+      <%= f.label :subscribed, class: 'check-font' %>
+    </div>
+    <%= f.submit 'Submit', class: 'btn-primary' %>
+  <% end %>
+</div>
