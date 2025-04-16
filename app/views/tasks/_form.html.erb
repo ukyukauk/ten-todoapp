@@ -18,10 +18,10 @@
       <%= f.label :eyecatch %>
     </div>
     <div>
-      <%= f.file_field :eyecatch, class: 'eyecatch' %>
+      <%= f.file_field :eyecatch, class: 'file' %>
     </div>
     <% if task.eyecatch.attached? %>
-      <div class="eyecatch_message">
+      <div class="file_message">
         現在のアイキャッチ画像は変更されません。<br>変更する場合は新しいファイルを選択してください。
       </div>
     <% end %>

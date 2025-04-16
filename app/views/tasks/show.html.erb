@@ -35,7 +35,7 @@
       <% @comments.each do |comment| %>
         <div class="comment">
           <div class="comment_icon">
-            <%= image_tag 'oval-man.png', class: "comment_icon-image" %>
+            <%= image_tag comment.user.avatar_image, class: "comment_icon-image" %>
           </div>
           <div class="comment_content">
             <%= comment.content %>
